@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "TWqzB2Q4c1zH3SbJxS4eBmR12VXiVjhe8FxGgJ4KPOc=",
+  "Source": "ApiWithFastEndpoints",
+  "BasePath": "_content/ApiWithFastEndpoints",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

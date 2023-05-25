@@ -1,0 +1,24 @@
+using ApiWithFastEndpoints.Mappers;
+using ApiWithFastEndpoints.Models.Responses;
+using ApiWithFastEndpoints.Services;
+using FastEndpoints;
+using Microsoft.AspNetCore.Authorization;
+
+namespace ApiWithFastEndpoints.Endpoints;
+
+[HttpGet("movies"), AllowAnonymous]
+public class GetMoviesEndpoint : Endpoint<EmptyRequest, IEnumerable<MovieResponse>, MovieMapper>
+{
+    private readonly MovieService _movieService;
+    public GetMoviesEndpoint(MovieService movieService)
+    {
+        _movieService = movieService;
+    }
+
+    public override async Task HandleAsync(EmptyRequest req, CancellationToken ct)
+    {
+        var movies = await _movieService.Get();
+
+        await SendAsync(movies.Select(Map.FromEntity), cancellation: ct);
+    }
+}
